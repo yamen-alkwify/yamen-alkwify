@@ -22,6 +22,7 @@ function App() {
 
   return (
     <>
+      <div className="noise-overlay" aria-hidden="true" />
       <Header
         navLinks={navLinks}
         activeSection={activeSection}

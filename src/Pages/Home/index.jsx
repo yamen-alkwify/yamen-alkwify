@@ -1,6 +1,22 @@
 import { useEffect, useRef, useState } from 'react';
 import ScrollReveal from 'scrollreveal';
-import { Hero, About, Services, Skills, OtherSkills, Projects, Contact, ScrollUp, services, skillRows, otherSkills, projects, typingTexts } from '../../ui/Home';
+import {
+  Hero,
+  About,
+  Services,
+  Skills,
+  Experience,
+  OtherSkills,
+  Projects,
+  Contact,
+  ScrollUp,
+  services,
+  skillRows,
+  experiences,
+  otherSkills,
+  projects,
+  typingTexts,
+} from '../../ui/Home';
 
 export default function HomePage() {
   const [showScrollUp, setShowScrollUp] = useState(false);
@@ -24,16 +40,16 @@ export default function HomePage() {
     const sr = ScrollReveal({
       origin: 'top',
       distance: '60px',
-      duration: 2500,
-      delay: 400,
+      duration: 1200,
+      delay: 500,
     });
 
-    sr.reveal('.home__perfil, .about__image, .skills-table, .contact__mail', { origin: 'right' });
+    sr.reveal('.home__perfil, .about__image, .contact__mail', { origin: 'right' });
     sr.reveal(
-      '.home__name, .home__info, .about__container, .section__title-1, .skill-container, .about__info, .contact__social, .contact__data',
+      '.home__name, .home__info, .about__container, .section__title-1, .skills__header, .about__info, .contact__social, .contact__data',
       { origin: 'left' },
     );
-    sr.reveal('.services__card, .projects__card', { interval: 800 });
+    sr.reveal('.services__card, .projects__card, .experience__card, .skills__rail, .other-skill', { interval: 180 });
   }, []);
 
   useEffect(() => {
@@ -105,6 +121,7 @@ export default function HomePage() {
         <About />
         <Services services={services} />
         <Skills skillRows={skillRows} />
+        <Experience experiences={experiences} />
         <OtherSkills otherSkills={otherSkills} />
         <Projects projects={projects} />
         <Contact formRef={formRef} formStatus={formStatus} onSubmit={handleSubmit} />

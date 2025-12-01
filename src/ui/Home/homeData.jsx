@@ -2,6 +2,7 @@ export const navLinks = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About Me' },
   { id: 'skills', label: 'Skills' },
+  { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact Me', isButton: true },
 ];
@@ -10,20 +11,45 @@ export const services = [
   {
     icon: 'ri-smartphone-line',
     title: 'Mobile App',
-    description: 'Design projects mobile apps to provide a seamless user experience.',
+    description:
+      'I build fast, stable, and scalable mobile apps with clean architecture, smooth UX, and secure data flows—ready for offline use and long-term growth.',
+  },
+    {
+    icon: 'ri-flow-chart',
+    title: 'Systems Analysis',
+    description:
+      'I convert business needs into precise, testable system requirements—mapping data, processes, and interactions to ensure a reliable, scalable solution.',
   },
   {
     icon: 'ri-code-box-line',
     title: 'Web Development',
     description:
-      'Custom app & web development tailored to your specifications, designed to provide a flawless user experience.',
+      'I develop modern, high-performance web apps with clean code, secure foundations, and APIs designed for easy integration and future expansion.',
   },
   {
     icon: 'ri-layout-4-line',
     title: 'UI / UX Design',
-    description: 'Beautiful and elegant designs with intuitive interfaces that are efficient and pleasant to use.',
+    description:
+      'I design intuitive, accessible interfaces that simplify tasks, improve usability, and help users reach their goals with less friction.',
+  },
+
+  // New services
+
+  {
+    icon: 'ri-briefcase-4-line',
+    title: 'Project Management',
+    description:
+      'I deliver projects with clear planning, predictable execution, and transparent communication—keeping scope, timelines, and risks under control.',
+  },
+  {
+    icon: 'ri-palette-line',
+    title: 'Brand Identity & Personal Branding',
+    description:
+      'I craft cohesive brand systems—visuals, tone, and guidelines—that strengthen recognition, consistency, and trust across all platforms.',
   },
 ];
+
+
 
 export const skillRows = [
   [
@@ -52,9 +78,9 @@ export const skillRows = [
 ];
 
 export const otherSkills = [
-  'Computer Vision',
-  'MVC - HMVC - MTV',
-  'Intelligent search algorithms',
+  'Gather requirements',
+  'MVC - MVVM - MVP',
+  'UML',
   'Design patterns',
   'Architectural Patterns',
   'SOLID principles',
@@ -78,8 +104,8 @@ export const projects = [
       'Key Libraries Used: React, useState, useEffect, useNavigate, useParams, Modal, js-file-download, lodash (debounce)',
   },
   {
-    image: '/assets/img/wasena.jpg',
-    subtitle: 'Delivery app',
+    image: '/assets/img/awa.png',
+    subtitle: 'AWA Real Estate A',
     title: 'Wasena - وسن',
     description:
       'Bringing convenience to the Damascus countryside, Wasena ensures swift and reliable delivery services. Seamlessly order, track, and receive your packages with ease, catering to both residents and businesses alike. Experience prompt delivery solutions tailored to your needs, all at your fingertips.',
@@ -234,8 +260,81 @@ export const projects = [
   },
 ];
 
+export const experiences = [
+  {
+    company: 'Lumi.AI · FreeZoon',
+    role: 'Flutter Developer',
+    period: '03/2025 - Present',
+    location: 'Damascus',
+    href: 'https://lumiai-agency.com/',
+    logo: '/assets/img/lumi.png',
+    summary:
+      'Building production Flutter apps with Clean Architecture (MVVM), native-feel motion, Cashing and local data sourcing ,Map APIs integration and notifications',
+    highlights: [
+      '•	SAVI MALL App: applied Clean Architecture (MVC), created advanced filtering with custom widgets and a seamless search flow, added FCM push alerts, a wishlist feature, and real-time order tracking.',
+      '•	PatternStock App: architected the app with Clean Architecture (MVVM), built dynamic custom UIs, integrated Stripe for payments, enabled Firebase Cloud Messaging push notifications, and implemented offline caching for peak performance.',
+
+    ],
+    stack: ['Flutter', 'Dart', 'MVVM', 'Bloc', 'Firebase', 'Stripe','E-pay','Local data Source','UML','SRS','Requirements gathering'],
+    impact: 'Market-ready offline-first builds',
+    accent: 'linear-gradient(135deg, hsla(212, 98%, 50%, 0.95), hsla(171, 69%, 53%, 0.85))',
+  },
+  {
+    company: 'AWA Real Estate',
+    role: 'Flutter Developer & System Analyst',
+    period: '12/2024 - 07/2025',
+    location: 'Remote',
+    href: 'https://awa-aqar.com/',
+    logo: '/assets/img/awa.jpg',
+    summary:
+      'Delivered AWA real-estate app end-to-end with payments, notifications, and rigorous requirements modeling.',
+    highlights: [
+      'Shipped offline caching/local data sourcing, OTP authentication, and push notifications for buyer/seller flows.',
+      'Integrated multiple e-payment rails (Fatora, Syriatel Cash, MTN Cash) with protected checkout UX.',
+      'Authored SRS and UML (activity, sequence, class, entity) to align delivery with business goals.',
+    ],
+    stack: ['Flutter', 'MVC','Clean Architecture','GetX', 'Firebase', 'Payments', 'UML', 'SRS','E-pay','Local data Source',],
+    accent: 'linear-gradient(135deg, hsla(27, 95%, 61%, 0.95), hsla(12, 78%, 55%, 0.9))',
+  },
+  {
+    company: 'K&K Group',
+    role: 'Flutter Developer',
+    period: '07/2023 - 03/2025',
+    location: 'Damascus',
+    href: 'https://kk-group.example.com',
+    logo: '/assets/img/kk.jpg',
+    summary:
+      'Built internal and customer-facing apps and dashboards to digitize fabric orders, warehouse ops, and sales.',
+    highlights: [
+      'KK Orders: solo-built order management app on Flutter + Firebase for fabric processing.',
+      'KK Group Warehouse: delivered responsive Flutter web dashboard linking warehouses, HQ, and outlets.',
+      'ZIKZAK: shipped clothing order app in 6 weeks; kicked off K&K e-commerce app for product catalog and sales.',
+    ],
+    stack: ['Flutter', 'Firebase', 'Responsive Web', 'Offline Caching', 'Real-time Data'],
+    accent: 'linear-gradient(135deg, hsla(249, 78%, 68%, 0.95), hsla(204, 77%, 61%, 0.9))',
+  },
+  {
+    company: 'K&K Group',
+    role: 'Systems Analyst',
+    period: '12/2023 - 03/2025',
+    location: 'Damascus',
+    href: 'https://kk-group.example.com',
+    logo: '/assets/img/kk.jpg',
+    summary:
+      'Translated stakeholder needs into executable blueprints with SRS deliverables and UML-driven designs.',
+    highlights: [
+      'Captured and modeled requirements with activity, sequence, class, and entity diagrams for multi-module systems.',
+      'Designed system architectures and data flows to keep integrations clean across warehouse, sales, and ops.',
+      'Guided dev teams from requirements to implementation with clear design artifacts and reviews.',
+    ],
+    stack: ['SRS', 'UML', 'Architecture', 'Process Modeling','Requirements gathering'],
+    accent: 'linear-gradient(135deg, hsla(140, 68%, 50%, 0.95), hsla(173, 80%, 58%, 0.9))',
+  },
+];
+
 export const typingTexts = [
-  "I'm information technology engineer",
+  "I'm Mobile apps developer",
+  "I'm Software engineer",
   "I'm System analyst",
-  "I'm mobile apps developer using Flutter",
+  "I'm Project manager",
 ];

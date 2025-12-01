@@ -10,7 +10,7 @@ export default function About() {
 
         <div className="about__perfil">
           <div className="about__image">
-            <img src="/assets/img/about-perfill.jpeg" alt="About" className="about__img" />
+            <img src="/assets/img/home-perfill.png" alt="About" className="about__img" />
             <div className="about__shadow" />
             <div className="geometric-box" />
             <img src="/assets/img/random-lines.svg" alt="lines" className="about__line" />
@@ -20,9 +20,9 @@ export default function About() {
 
         <div className="about__info">
           <p className="about__description">
-            <b>Yamen Alkuify</b>, from the countryside of Damascus, Information technology engineer, specializing in artificial
-            intelligence, Fronend Developer with 3 years of work experience using various techniques such as Flutter , Dart,
-            React, Vue js, HTML, CSS . . .
+            <b>Yamen Alkuify</b>,  Information technology engineer, specializing in Software
+            Engineering, System analyst and Mobile Apps developer with 5 years of work experience using various techniques such as Flutter , Dart,
+            React, C++, HTML, CSS . . .
           </p>
 
           <ul className="about__list">
@@ -33,7 +33,7 @@ export default function About() {
                 Birthday:
               </b>
               {' '}
-              4 April 2000
+              10 April 2001
             </li>
             <li className="about__item">
               <b>
@@ -41,7 +41,7 @@ export default function About() {
                 {' '}
                 Phone:
               </b>
-              +963 992 373 318
+              +963 983 089 150
             </li>
           </ul>
 
@@ -68,7 +68,7 @@ export default function About() {
             <NavLink to="/#contact" className="button">
               <i className="ri-send-plane-line"> Contact Me</i>
             </NavLink>
-            <a href="https://www.linkedin.com/in/abdullah-al-joujou-a24962185/" target="_blank" rel="noreferrer" className="button__ghost">
+            <a href="https://www.linkedin.com/in/yamen-alkuify-0128142bb/" target="_blank" rel="noreferrer" className="button__ghost">
               <i className="ri-linkedin-box-line" />
             </a>
           </div>

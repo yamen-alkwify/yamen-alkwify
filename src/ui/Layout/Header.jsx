@@ -1,4 +1,5 @@
-import { NavLink } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import NavLinkAnimated from '../common/NavLinkAnimated';
 
 export default function Header({
   navLinks,
@@ -10,13 +11,27 @@ export default function Header({
   theme,
   onToggleTheme,
 }) {
+  const headerVariants = {
+    hidden: { y: -40, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
+  };
+
   return (
-    <header className={`header ${headerShadow ? 'shadow-header' : ''}`} id="header">
+    <motion.header
+      className={`header ${headerShadow ? 'shadow-header' : ''}`}
+      id="header"
+      variants={headerVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <nav className="nav container">
-        <NavLink to="/#home" className="nav__logo" onClick={onCloseMenu}>
+        <motion.a whileHover={{ y: -1 }} href="/#home" className="nav__logo" onClick={onCloseMenu}>
           <span className="nav__logo-circle">YK</span>
-          <span className="nav__logo-name">Yamen Alkuify</span>
-        </NavLink>
+          <div className="nav__brand">
+            <span className="nav__logo-name">Yamen Alkuify</span>
+            <span className="nav__logo-role"> Software engineer</span>
+          </div>
+        </motion.a>
 
         <div className={`nav__menu ${menuOpen ? 'show-menu' : ''}`} id="nav-menu">
           <span className="nav__title">Menu</span>
@@ -24,13 +39,9 @@ export default function Header({
           <ul className="nav__list">
             {navLinks.map(({ id, label, isButton }) => (
               <li className="nav__item" key={id}>
-                <NavLink
-                  to={`/#${id}`}
-                  className={`nav__link ${activeSection === id ? 'active-link' : ''} ${isButton ? 'nav__link-button' : ''}`}
-                  onClick={onCloseMenu}
-                >
+                <NavLinkAnimated to={`/#${id}`} isActive={activeSection === id} onClick={onCloseMenu} className={isButton ? 'nav__link-button' : ''}>
                   {label}
-                </NavLink>
+                </NavLinkAnimated>
               </li>
             ))}
           </ul>
@@ -53,6 +64,6 @@ export default function Header({
           </div>
         </div>
       </nav>
-    </header>
+    </motion.header>
   );
 }
