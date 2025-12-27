@@ -2240,6 +2240,7 @@ font-size: 1.25rem;
     overflow: hidden;
     transition: transform .5s ease, box-shadow .5s ease, border-color .4s ease, background .5s ease;
     isolation: isolate;
+    cursor: pointer;
 }
 
 .projects__card::before{
@@ -2253,6 +2254,16 @@ font-size: 1.25rem;
     z-index: 0;
 }
 
+.projects__card::after{
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 22px;
+    border: 1px solid transparent;
+    transition: border-color .45s ease, box-shadow .45s ease;
+    pointer-events: none;
+}
+
 .projects__card:hover{
     transform: translateY(-12px) scale(1.01);
     box-shadow: 0 14px 30px rgba(16, 24, 40, 0.14);
@@ -2262,6 +2273,11 @@ font-size: 1.25rem;
 
 .projects__card:hover::before{
     opacity: 1;
+}
+
+.projects__card:hover::after{
+    border-color: color-mix(in srgb, var(--first-color) 26%, rgba(99,156,255,0.18));
+    box-shadow: 0 14px 34px rgba(34, 119, 255, 0.18);
 }
 
 .projects__halo{
@@ -2490,6 +2506,191 @@ font-size: 1.25rem;
     color: var(--text-color-light);
     font-size: var(--smaller-font-size);
     line-height: 1.5;
+}
+
+.projects__tap-hint{
+    display: none;
+}
+
+.projects__details-btn{
+    display: none;
+}
+
+.project-modal{
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    z-index: 1200;
+}
+
+.project-modal__backdrop{
+    position: absolute;
+    inset: 0;
+    background: rgba(5, 9, 20, 0.62);
+    backdrop-filter: blur(8px);
+}
+
+.project-modal__dialog{
+    position: relative;
+    width: min(1280px, 96vw);
+    max-height: 92vh;
+    background: color-mix(in srgb, var(--surface-elevated) 92%, rgba(0,0,0,0.02));
+    border: 1px solid var(--border-soft);
+    border-radius: 24px;
+    padding: 1.5rem;
+    box-shadow: 0 22px 70px rgba(0,0,0,0.25);
+    overflow: hidden;
+    display: grid;
+    gap: 1rem;
+    z-index: 1;
+}
+
+.dark-theme .project-modal__dialog{
+    background: color-mix(in srgb, var(--surface-elevated-dark) 94%, transparent);
+}
+
+.project-modal__close{
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    border: 1px solid var(--border-soft);
+    background: color-mix(in srgb, var(--surface-elevated) 80%, transparent);
+    color: var(--title-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+    z-index: 2;
+}
+
+.project-modal__close:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 26px rgba(0,0,0,0.15);
+}
+
+.project-modal__body{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 1.25rem;
+    align-items: start;
+    max-height: 82vh;
+    overflow: auto;
+    padding-right: .4rem;
+}
+
+.project-modal__media{
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(99,156,255,0.12), rgba(0,0,0,0.08));
+    min-height: 360px;
+    border: 1px solid color-mix(in srgb, var(--border-soft) 70%, rgba(99,156,255,0.2));
+    box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+}
+
+.project-modal__media img,
+.project-modal__video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-modal__info{
+    display: grid;
+    gap: .7rem;
+}
+
+.project-modal__subtitle{
+    color: var(--text-color-light);
+    font-size: var(--small-font-size);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+
+.project-modal__title{
+    margin: 0;
+    font-size: 1.75rem;
+    color: var(--title-color);
+}
+
+.project-modal__description{
+    color: var(--text-color);
+    line-height: 1.65;
+}
+
+.project-modal__tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.project-modal__links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+}
+
+.project-modal__thumbs{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .6rem;
+    margin-top: .3rem;
+}
+
+.project-modal__thumb{
+    position: relative;
+    border: 1px solid color-mix(in srgb, var(--border-soft) 70%, rgba(99,156,255,0.25));
+    border-radius: 12px;
+    overflow: hidden;
+    background: color-mix(in srgb, var(--surface-elevated) 70%, transparent);
+    width: 110px;
+    height: 80px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.project-modal__thumb img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-modal__thumb--video{
+    gap: .35rem;
+    color: var(--title-color);
+    font-weight: var(--font-semi-bold);
+    background: rgba(0,0,0,0.02);
+}
+
+.project-modal__thumb--active{
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--first-color) 40%, var(--border-soft));
+    box-shadow: 0 12px 28px rgba(34,119,255,0.18);
+}
+
+.project-modal__thumb:hover{
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px){
+    .project-modal__dialog{
+        padding: 1rem;
+        max-height: 90vh;
+    }
+
+    .project-modal__body{
+        grid-template-columns: 1fr;
+    }
 }
 
 @media (max-width: 768px){

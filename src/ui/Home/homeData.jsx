@@ -95,6 +95,8 @@ export const projects = [
     title: 'Online Account Opening Platform',
     description:
       'This platform allows customers to easily open traditional or digital accounts at the National Islamic Bank. The traditional account offers SMS notifications and QR functionality, while the digital account provides advanced online transaction features. Built using React and JavaScript, the platform ensures security, performance, and a seamless user experience.',
+    gallery: ['/assets/img/kyc.png', '/assets/img/platform.jpg', '/assets/img/weather.jpg', '/assets/img/awa.png'],
+    video: 'https://www.w3schools.com/html/mov_bbb.mp4',
     links: [
       { href: 'https://account.nib.com.sy', label: 'Visit', icon: 'ri-globe-line' },
       { href: 'https://nib.com.sy', label: 'Bank Website', icon: 'ri-bank-line' },
@@ -105,8 +107,8 @@ export const projects = [
   },
   {
     image: '/assets/img/awa.png',
-    subtitle: 'AWA Real Estate A',
-    title: 'Wasena - وسن',
+    subtitle: 'AWA Real Estate',
+    title: 'AWA',
     description:
       'Bringing convenience to the Damascus countryside, Wasena ensures swift and reliable delivery services. Seamlessly order, track, and receive your packages with ease, catering to both residents and businesses alike. Experience prompt delivery solutions tailored to your needs, all at your fingertips.',
     links: [
@@ -190,65 +192,65 @@ export const projects = [
     tags: ['#Flutter', '#GetX'],
     secondaryTags: ['#Json', '#fetchdata'],
   },
-  {
-    image: '/assets/img/langpro.png',
-    subtitle: 'Intelligent Language Assistant (Python)',
-    title: 'Language Assistant',
-    description: (
-      <>
-        <p>
-          Our project is a Desktop Application that helps children learn the English language through several methods:
-        </p>
-        <p>
-          1. <strong>Generation Question</strong>: The application generates questions based on stories designed for children to
-          read, after which the child can answer the questions they choose.
-        </p>
-        <ul>
-          <li>
-            <strong>Wh Question:</strong> Generates questions based on answers extracted after processing a PDF file. The
-            child&apos;s answer is compared to the correct answer using a similarity algorithm that transforms both answers into
-            vectors using Beart Vector and embedding Vector, calculating the cosine angle to determine similarity.
-          </li>
-          <li>
-            <strong>Multiple Choice:</strong> Processes text and selects key words for the question&apos;s subject. Generates
-            synonymous answers using the nltk library and the WordNet database, along with a transformer T5 model trained on the
-            Stanford Question Answer Dataset (SQAD).
-          </li>
-          <li>
-            <strong>Yes/No Question:</strong> Selects sentences from the text and modifies certain elements by providing synonyms
-            or antonyms for words using WordNet and TextBlob.
-          </li>
-        </ul>
-        <p>
-          2. <strong>Pronunciation Test</strong>: A system that allows children to test their pronunciation by either selecting a
-          sentence from a story or adding a custom sentence. The user records a voice clip, and the system converts it to text
-          using Google API, then compares the phonemes with the original sentence&apos;s phonemes to evaluate pronunciation
-          accuracy.
-        </p>
-        <p>
-          The application supports adding stories in PDF format and processing them in various ways. Future developments will
-          include grammar tests and conversation features, as well as a mobile application version.
-        </p>
-      </>
-    ),
-    links: [
-      {
-        href: 'https://github.com/AbdullahAljojo/Python--Language-Assistant.git',
-        label: 'View Source',
-        icon: 'ri-github-line',
-      },
-      {
-        href: 'https://www.facebook.com/share/v/k1QKu5XHtE4EySdP/?mibextid=oFDknk',
-        label: 'Demo',
-        icon: 'ri-facebook-line',
-      },
-    ],
-    tags: ['#Python', '#NLP', '#scikit-learn', '#nltk', '#spacy', '#transformers'],
-    buttonOverlay: {
-      href: 'https://www.facebook.com/share/v/k1QKu5XHtE4EySdP/?mibextid=oFDknk',
-      icon: 'ri-facebook-line',
-    },
-  },
+  // {
+  //   image: '/assets/img/langpro.png',
+  //   subtitle: 'Intelligent Language Assistant (Python)',
+  //   title: 'Language Assistant',
+  //   description: (
+  //     <>
+  //       <p>
+  //         Our project is a Desktop Application that helps children learn the English language through several methods:
+  //       </p>
+  //       <p>
+  //         1. <strong>Generation Question</strong>: The application generates questions based on stories designed for children to
+  //         read, after which the child can answer the questions they choose.
+  //       </p>
+  //       <ul>
+  //         <li>
+  //           <strong>Wh Question:</strong> Generates questions based on answers extracted after processing a PDF file. The
+  //           child&apos;s answer is compared to the correct answer using a similarity algorithm that transforms both answers into
+  //           vectors using Beart Vector and embedding Vector, calculating the cosine angle to determine similarity.
+  //         </li>
+  //         <li>
+  //           <strong>Multiple Choice:</strong> Processes text and selects key words for the question&apos;s subject. Generates
+  //           synonymous answers using the nltk library and the WordNet database, along with a transformer T5 model trained on the
+  //           Stanford Question Answer Dataset (SQAD).
+  //         </li>
+  //         <li>
+  //           <strong>Yes/No Question:</strong> Selects sentences from the text and modifies certain elements by providing synonyms
+  //           or antonyms for words using WordNet and TextBlob.
+  //         </li>
+  //       </ul>
+  //       <p>
+  //         2. <strong>Pronunciation Test</strong>: A system that allows children to test their pronunciation by either selecting a
+  //         sentence from a story or adding a custom sentence. The user records a voice clip, and the system converts it to text
+  //         using Google API, then compares the phonemes with the original sentence&apos;s phonemes to evaluate pronunciation
+  //         accuracy.
+  //       </p>
+  //       <p>
+  //         The application supports adding stories in PDF format and processing them in various ways. Future developments will
+  //         include grammar tests and conversation features, as well as a mobile application version.
+  //       </p>
+  //     </>
+  //   ),
+  //   links: [
+  //     {
+  //       href: 'https://github.com/AbdullahAljojo/Python--Language-Assistant.git',
+  //       label: 'View Source',
+  //       icon: 'ri-github-line',
+  //     },
+  //     {
+  //       href: 'https://www.facebook.com/share/v/k1QKu5XHtE4EySdP/?mibextid=oFDknk',
+  //       label: 'Demo',
+  //       icon: 'ri-facebook-line',
+  //     },
+  //   ],
+  //   tags: ['#Python', '#NLP', '#scikit-learn', '#nltk', '#spacy', '#transformers'],
+  //   buttonOverlay: {
+  //     href: 'https://www.facebook.com/share/v/k1QKu5XHtE4EySdP/?mibextid=oFDknk',
+  //     icon: 'ri-facebook-line',
+  //   },
+  // },
   {
     image: '/assets/img/start.png',
     subtitle: 'Parachute simulation (JavaScript)',

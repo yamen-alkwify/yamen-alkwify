@@ -1,4 +1,26 @@
+import { useState } from 'react';
+
 export default function Projects({ projects }) {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedMedia, setSelectedMedia] = useState(null);
+
+  const openDetails = (project) => {
+    setSelectedProject(project);
+    if (project.video) {
+      setSelectedMedia('video');
+    } else {
+      const firstImage = project.gallery?.[0] || project.image;
+      setSelectedMedia(firstImage);
+    }
+  };
+
+  const closeDetails = () => {
+    setSelectedProject(null);
+    setSelectedMedia(null);
+  };
+
+  const handleSelectMedia = (media) => setSelectedMedia(media);
+
   return (
     <section className="projects section" id="projects">
       <div className="projects__header container">
@@ -47,7 +69,14 @@ export default function Projects({ projects }) {
           const orderedLinks = ordered;
 
           return (
-          <article className="projects__card" key={project.title}>
+          <article
+            className="projects__card"
+            key={project.title}
+            onClick={(e) => {
+              if (e.target.closest('a')) return;
+              openDetails(project);
+            }}
+          >
             <span className="projects__halo" aria-hidden="true" />
 
             <div className="projects__image">
@@ -61,6 +90,11 @@ export default function Projects({ projects }) {
             </div>
 
             <div className="projects__content">
+              <div className="projects__tap-hint">
+                <i className="ri-hand-pointer-line" />
+                اضغط لعرض التفاصيل
+              </div>
+
               <div className="projects__meta">
                 <span className="projects__index">#{String(index + 1).padStart(2, '0')}</span>
                 <span className="projects__subtitle">{project.subtitle}</span>
@@ -101,6 +135,80 @@ export default function Projects({ projects }) {
           );
         })}
       </div>
+
+      {selectedProject && (
+        <div className="project-modal" role="dialog" aria-modal="true">
+          <div className="project-modal__backdrop" onClick={closeDetails} />
+          <div className="project-modal__dialog">
+            <button type="button" className="project-modal__close" onClick={closeDetails}>
+              <i className="ri-close-line" />
+            </button>
+            <div className="project-modal__body">
+              <div className="project-modal__media">
+                {selectedProject.video && selectedMedia === 'video' ? (
+                  <video className="project-modal__video" src={selectedProject.video} controls autoPlay playsInline />
+                ) : (
+                  <img src={selectedMedia || selectedProject.image} alt={selectedProject.title} />
+                )}
+              </div>
+
+              <div className="project-modal__info">
+                <p className="project-modal__subtitle">{selectedProject.subtitle}</p>
+                <h3 className="project-modal__title">{selectedProject.title}</h3>
+                <div className="project-modal__description">
+                  {typeof selectedProject.description === 'string' ? <p>{selectedProject.description}</p> : selectedProject.description}
+                </div>
+                {(selectedProject.tags || selectedProject.secondaryTags) && (
+                  <div className="project-modal__tags">
+                    {selectedProject.tags?.map((tag) => (
+                      <span key={tag} className="projects__tag">
+                        {tag}
+                      </span>
+                    ))}
+                    {selectedProject.secondaryTags?.map((tag) => (
+                      <span key={tag} className="projects__tag projects__tag--muted">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <div className="project-modal__links">
+                  {(selectedProject.links || []).map((link) => (
+                    <a key={link.href} href={link.href} target="_blank" rel="noreferrer" className="projects__link">
+                      <i className={link.icon} />
+                      {link.label}
+                    </a>
+                  ))}
+                </div>
+                {(selectedProject.gallery || selectedProject.video) && (
+                  <div className="project-modal__thumbs">
+                    {selectedProject.video && (
+                      <button
+                        type="button"
+                        className={`project-modal__thumb project-modal__thumb--video ${selectedMedia === 'video' ? 'project-modal__thumb--active' : ''}`}
+                        onClick={() => handleSelectMedia('video')}
+                      >
+                        <i className="ri-play-circle-line" />
+                        <span>فيديو</span>
+                      </button>
+                    )}
+                    {selectedProject.gallery?.map((media) => (
+                      <button
+                        key={media}
+                        type="button"
+                        className={`project-modal__thumb ${selectedMedia === media ? 'project-modal__thumb--active' : ''}`}
+                        onClick={() => handleSelectMedia(media)}
+                      >
+                        <img src={media} alt={`${selectedProject.title} preview`} />
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
