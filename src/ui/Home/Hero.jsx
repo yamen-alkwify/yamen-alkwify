@@ -4,6 +4,7 @@ import { PrimaryButton, GhostButton, TextButton } from '../common/Button';
 import SocialLinks from '../common/SocialLinks';
 import FloatingBlob from '../common/FloatingBlob';
 import HeroTitleAnimated from '../common/HeroTitleAnimated';
+import { assetPath } from '../../utils/assetPath';
 
 const container = {
   hidden: { opacity: 0 },
@@ -42,7 +43,7 @@ export default function Hero({ typedText }) {
           </motion.p>
 
           <motion.div className="hero__cta" variants={fadeUp}>
-            <PrimaryButton href="/assets/img/cv/yamenCV.pdf" target="_blank" rel="noreferrer">
+            <PrimaryButton href={assetPath('assets/img/cv/yamenCV.pdf')} target="_blank" rel="noreferrer">
               Download CV
             </PrimaryButton>
             <GhostButton as="a" href="/#projects">
@@ -67,7 +68,7 @@ export default function Hero({ typedText }) {
         <motion.div className="hero__visual" initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.1 }}>
           <div className="hero__card">
             <div className="hero__image-wrap">
-              <img src="/assets/img/about-perfill.png" alt="Profile" className="home__img" />
+              <img src={assetPath('assets/img/about-perfill.png')} alt="Profile" className="home__img" />
               <div className="hero__glow" />
               <motion.div className="hero__shape hero__shape--1" variants={floatingVariants} animate="animate" />
               <motion.div className="hero__shape hero__shape--2" variants={floatingVariants} animate="animate" transition={{ delay: 1 }} />

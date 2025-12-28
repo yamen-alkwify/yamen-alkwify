@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { assetPath } from '../../utils/assetPath';
 
 export default function About() {
   return (
@@ -10,10 +11,10 @@ export default function About() {
 
         <div className="about__perfil">
           <div className="about__image">
-            <img src="/assets/img/home-perfill.png" alt="About" className="about__img" />
+            <img src={assetPath('assets/img/home-perfill.png')} alt="About" className="about__img" />
             <div className="about__shadow" />
             <div className="geometric-box" />
-            <img src="/assets/img/random-lines.svg" alt="lines" className="about__line" />
+            <img src={assetPath('assets/img/random-lines.svg')} alt="lines" className="about__line" />
             <div className="about__box" />
           </div>
         </div>

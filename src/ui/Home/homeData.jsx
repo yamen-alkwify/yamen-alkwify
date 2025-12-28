@@ -1,3 +1,7 @@
+import { assetPath } from '../../utils/assetPath';
+
+const img = (path) => assetPath(`assets/img/${path}`);
+
 export const navLinks = [
   { id: 'home', label: 'Home' },
   { id: 'about', label: 'About Me' },
@@ -53,27 +57,27 @@ export const services = [
 
 export const skillRows = [
   [
-    { name: 'React', img: '/assets/img/skills/react.svg', alt: 'React' },
-    { name: 'Dart', img: '/assets/img/skills/dart.png', alt: 'Dart' },
-    { name: 'Flutter', img: '/assets/img/skills/flutter.png', alt: 'Flutter' },
-    { name: 'Firebase', img: '/assets/img/skills/firebase.png', alt: 'Firebase' },
-    { name: 'java', img: '/assets/img/skills/java.png', alt: 'Java' },
-    { name: 'JavaScript', img: '/assets/img/skills/js.png', alt: 'JavaScript' },
-    { name: 'Python', img: '/assets/img/skills/python.png', alt: 'Python' },
-    { name: '<HTML/>', img: '/assets/img/skills/html.png', alt: 'HTML' },
-    { name: '.CSS{ }', img: '/assets/img/skills/css.png', alt: 'CSS' },
+    { name: 'React', img: img('skills/react.svg'), alt: 'React' },
+    { name: 'Dart', img: img('skills/dart.png'), alt: 'Dart' },
+    { name: 'Flutter', img: img('skills/flutter.png'), alt: 'Flutter' },
+    { name: 'Firebase', img: img('skills/firebase.png'), alt: 'Firebase' },
+    { name: 'java', img: img('skills/java.png'), alt: 'Java' },
+    { name: 'JavaScript', img: img('skills/js.png'), alt: 'JavaScript' },
+    { name: 'Python', img: img('skills/python.png'), alt: 'Python' },
+    { name: '<HTML/>', img: img('skills/html.png'), alt: 'HTML' },
+    { name: '.CSS{ }', img: img('skills/css.png'), alt: 'CSS' },
   ],
   [
-    { name: 'Postman', img: '/assets/img/skills/postman.svg', alt: 'Postman' },
-    { name: 'Linux', img: '/assets/img/skills/linux.png', alt: 'Linux' },
-    { name: 'C#', img: '/assets/img/skills/cc.png', alt: 'C#' },
-    { name: 'C', img: '/assets/img/skills/c.png', alt: 'C' },
-    { name: 'C++', img: '/assets/img/skills/c++.png', alt: 'C++' },
-    { name: 'GitHub', img: '/assets/img/skills/github.png', alt: 'GitHub' },
-    { name: 'Git', img: '/assets/img/skills/git.png', alt: 'Git' },
-    { name: 'Figma', img: '/assets/img/skills/figma.png', alt: 'Figma' },
-    { name: 'Adobe XD', img: '/assets/img/skills/xd.png', alt: 'Adobe XD' },
-    { name: 'Photoshop', img: '/assets/img/skills/ps.png', alt: 'Photoshop' },
+    { name: 'Postman', img: img('skills/postman.svg'), alt: 'Postman' },
+    { name: 'Linux', img: img('skills/linux.png'), alt: 'Linux' },
+    { name: 'C#', img: img('skills/cc.png'), alt: 'C#' },
+    { name: 'C', img: img('skills/c.png'), alt: 'C' },
+    { name: 'C++', img: img('skills/c++.png'), alt: 'C++' },
+    { name: 'GitHub', img: img('skills/github.png'), alt: 'GitHub' },
+    { name: 'Git', img: img('skills/git.png'), alt: 'Git' },
+    { name: 'Figma', img: img('skills/figma.png'), alt: 'Figma' },
+    { name: 'Adobe XD', img: img('skills/xd.png'), alt: 'Adobe XD' },
+    { name: 'Photoshop', img: img('skills/ps.png'), alt: 'Photoshop' },
   ],
 ];
 
@@ -90,12 +94,12 @@ export const otherSkills = [
 
 export const projects = [
   {
-    image: '/assets/img/kyc.png',
+    image: img('kyc.png'),
     subtitle: 'National Islamic Bank',
     title: 'Online Account Opening Platform',
     description:
       'This platform allows customers to easily open traditional or digital accounts at the National Islamic Bank. The traditional account offers SMS notifications and QR functionality, while the digital account provides advanced online transaction features. Built using React and JavaScript, the platform ensures security, performance, and a seamless user experience.',
-    gallery: ['/assets/img/kyc.png', '/assets/img/platform.jpg', '/assets/img/weather.jpg', '/assets/img/awa.png'],
+    gallery: [img('kyc.png'), img('platform.jpg'), img('weather.jpg'), img('awa.png')],
     video: 'https://www.w3schools.com/html/mov_bbb.mp4',
     links: [
       { href: 'https://account.nib.com.sy', label: 'Visit', icon: 'ri-globe-line' },
@@ -106,7 +110,7 @@ export const projects = [
       'Key Libraries Used: React, useState, useEffect, useNavigate, useParams, Modal, js-file-download, lodash (debounce)',
   },
   {
-    image: '/assets/img/awa.png',
+    image: img('awa.png'),
     subtitle: 'AWA Real Estate',
     title: 'AWA',
     description:
@@ -126,7 +130,7 @@ export const projects = [
     buttonOverlay: { href: 'https://play.google.com/store/apps/details?id=com.wasena.app', icon: 'ri-google-play-line' },
   },
   {
-    image: '/assets/img/quizon.jpg',
+    image: img('quizon.jpg'),
     subtitle: 'project at (PionneNetwork Company)',
     title: 'QuizOn App',
     description:
@@ -141,7 +145,7 @@ export const projects = [
     buttonOverlay: { href: 'https://play.google.com/store/apps/details?id=com.flutter.quizon', icon: 'ri-google-play-line' },
   },
   {
-    image: '/assets/img/clinic.jpg',
+    image: img('clinic.jpg'),
     subtitle: 'Pioneer clinic reservation',
     title: 'PioneerClinic App',
     description:
@@ -159,7 +163,7 @@ export const projects = [
     buttonOverlay: { href: '#', icon: 'ri-google-play-line' },
   },
   {
-    image: '/assets/img/weather.jpg',
+    image: img('weather.jpg'),
     subtitle: 'Weather app task (Saudi Arabia)',
     title: 'Weather App',
     description:
@@ -171,7 +175,7 @@ export const projects = [
     tags: ['#Flutter', '#bloc', '#cloudData'],
   },
   {
-    image: '/assets/img/platform.jpg',
+    image: img('platform.jpg'),
     subtitle: 'project at (Damascus University)',
     title: 'Colsuntaint Platform App',
     description:
@@ -184,7 +188,7 @@ export const projects = [
     secondaryTags: ['#Laravel', '#Mysql'],
   },
   {
-    image: '/assets/img/devo.jpg',
+    image: img('devo.jpg'),
     subtitle: 'Workshop UI app',
     title: 'FlutterDevo',
     description: 'Converse effortlessly with FlutterDevo, enjoying natural interactions, smart responses, and instant engagement.',
@@ -252,7 +256,7 @@ export const projects = [
   //   },
   // },
   {
-    image: '/assets/img/start.png',
+    image: img('start.png'),
     subtitle: 'Parachute simulation (JavaScript)',
     title: 'Parachute-Adventure-simulation',
     description:
@@ -269,7 +273,7 @@ export const experiences = [
     period: '03/2025 - Present',
     location: 'Damascus',
     href: 'https://lumiai-agency.com/',
-    logo: '/assets/img/lumi.png',
+    logo: img('lumi.png'),
     summary:
       'Building production Flutter apps with Clean Architecture (MVVM), native-feel motion, Cashing and local data sourcing ,Map APIs integration and notifications',
     highlights: [
@@ -287,7 +291,7 @@ export const experiences = [
     period: '12/2024 - 07/2025',
     location: 'Remote',
     href: 'https://awa-aqar.com/',
-    logo: '/assets/img/awa.jpg',
+    logo: img('awa.jpg'),
     summary:
       'Delivered AWA real-estate app end-to-end with payments, notifications, and rigorous requirements modeling.',
     highlights: [
@@ -304,7 +308,7 @@ export const experiences = [
     period: '07/2023 - 03/2025',
     location: 'Damascus',
     href: 'https://kk-group.example.com',
-    logo: '/assets/img/kk.jpg',
+    logo: img('kk.jpg'),
     summary:
       'Built internal and customer-facing apps and dashboards to digitize fabric orders, warehouse ops, and sales.',
     highlights: [
@@ -321,7 +325,7 @@ export const experiences = [
     period: '12/2023 - 03/2025',
     location: 'Damascus',
     href: 'https://kk-group.example.com',
-    logo: '/assets/img/kk.jpg',
+    logo: img('kk.jpg'),
     summary:
       'Translated stakeholder needs into executable blueprints with SRS deliverables and UML-driven designs.',
     highlights: [
