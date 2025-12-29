@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import useMediaQuery from '../../hooks/useMediaQuery';
 import NavLinkAnimated from '../common/NavLinkAnimated';
 
 export default function Header({
@@ -11,9 +13,32 @@ export default function Header({
   theme,
   onToggleTheme,
 }) {
+  const isDesktop = useMediaQuery('(min-width: 1150px)');
+
   const headerVariants = {
     hidden: { y: -40, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.6, ease: 'easeOut' } },
+  };
+
+  useEffect(() => {
+    if (isDesktop && menuOpen) {
+      onCloseMenu();
+    }
+  }, [isDesktop, menuOpen, onCloseMenu]);
+
+  const handleToggleMenu = () => {
+    if (menuOpen) {
+      onCloseMenu();
+    } else {
+      onOpenMenu();
+    }
+  };
+
+  const handleCloseMenuKeyDown = (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onCloseMenu();
+    }
   };
 
   return (
@@ -33,7 +58,7 @@ export default function Header({
           </div>
         </motion.a>
 
-        <div className={`nav__menu ${menuOpen ? 'show-menu' : ''}`} id="nav-menu">
+        <div className={`nav__menu ${menuOpen ? 'show-menu' : ''}`} id="nav-menu" aria-hidden={isDesktop ? false : !menuOpen}>
           <span className="nav__title">Menu</span>
           <h3 className="nav__name">Yamen</h3>
           <ul className="nav__list">
@@ -46,7 +71,15 @@ export default function Header({
             ))}
           </ul>
 
-          <div className="nav__close" id="nav-close" onClick={onCloseMenu} role="button" tabIndex={0}>
+          <div
+            className="nav__close"
+            id="nav-close"
+            onClick={onCloseMenu}
+            role="button"
+            tabIndex={0}
+            onKeyDown={handleCloseMenuKeyDown}
+            aria-label="Close navigation menu"
+          >
             <i className="ri-close-line" />
           </div>
         </div>
@@ -59,9 +92,19 @@ export default function Header({
             role="button"
             tabIndex={0}
           />
-          <div className="nav__toggle" id="nav-toggle" onClick={onOpenMenu} role="button" tabIndex={0}>
-            <i className="ri-menu-4-line" />
-          </div>
+          {!isDesktop && (
+            <button
+              type="button"
+              className="nav__toggle"
+              id="nav-toggle"
+              onClick={handleToggleMenu}
+              aria-label={`${menuOpen ? 'Close' : 'Open'} navigation menu`}
+              aria-expanded={menuOpen}
+              aria-controls="nav-menu"
+            >
+              <i className={menuOpen ? 'ri-close-line' : 'ri-menu-4-line'} />
+            </button>
+          )}
         </div>
       </nav>
     </motion.header>

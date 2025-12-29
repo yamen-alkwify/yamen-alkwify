@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ApplicationRoutes from './routes/route';
 import Header from './ui/Layout/Header';
@@ -16,7 +16,8 @@ function App() {
   const [activeSection, setActiveSection] = useActiveSection(navLinks);
   const location = useLocation();
 
-  const closeMenu = () => setMenuOpen(false);
+  const openMenu = useCallback(() => setMenuOpen(true), []);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
 
   useHashNavigation(location.hash, setActiveSection);
 
@@ -28,7 +29,7 @@ function App() {
         activeSection={activeSection}
         menuOpen={menuOpen}
         headerShadow={headerShadow}
-        onOpenMenu={() => setMenuOpen(true)}
+        onOpenMenu={openMenu}
         onCloseMenu={closeMenu}
         theme={theme}
         onToggleTheme={toggleTheme}

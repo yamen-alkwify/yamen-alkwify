@@ -1069,15 +1069,75 @@ color: var(--white-color);
     }
 
     .nav__menu{
-        position: fixed;
-        top: -100%;
+        position: absolute;
+        top: -120vh;
         left: 0;
-        background-color: hsla(0, 0%, 3%, 0.75);
+        right: 0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.7), rgba(8, 18, 36, 0.9));
         width: 100%;
-        padding-block: 1.8rem 5rem;
+        padding: 1.5rem 1.1rem 3rem;
         text-align: center;
-        backdrop-filter: blur(8px);
-        transition: top .4s;
+        backdrop-filter: blur(16px);
+        transition: top .4s, opacity .3s ease;
+        height: auto;
+        max-height: calc(100vh - var(--header-height) - 1.5rem);
+        max-width: 520px;
+        margin-inline: auto;
+        border-radius: 16px 16px 24px 24px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.35);
+        overflow: hidden;
+    }
+
+    .nav__menu::before{
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(120% 100% at 50% 0%, rgba(96, 150, 255, 0.14), transparent 55%),
+                    radial-gradient(90% 60% at 50% 60%, rgba(34, 119, 255, 0.08), transparent 60%);
+        pointer-events: none;
+    }
+
+    .nav__menu .nav__list{
+        position: relative;
+        row-gap: 1.6rem;
+    }
+
+    .nav__menu .nav__item .nav__link{
+        color: var(--white-color);
+        letter-spacing: 0.02em;
+        background: rgba(255, 255, 255, 0.04);
+        padding: 0.65rem 1.1rem;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+    }
+
+    .nav__menu .nav__item .nav__link.active-link{
+        box-shadow: 0 16px 32px rgba(34, 119, 255, 0.28);
+    }
+
+    .nav__title{
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: rgba(255,255,255,0.7);
+    }
+
+    .nav__name{
+        margin-bottom: 2.5rem;
+        font-weight: var(--font-bold);
+        color: #fff;
+    }
+
+    .nav__close{
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 10px 24px rgba(0,0,0,0.2);
     }
 }
 
@@ -1161,7 +1221,7 @@ color: var(--white-color);
 
 /* Show menu */
 .show-menu{
-    top: 0;
+    top: calc(100% + .5rem);
 }
 
 
