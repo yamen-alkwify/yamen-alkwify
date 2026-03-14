@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { assetPath } from '../../utils/assetPath';
+import { hashPath } from '../../utils/hashPath';
 
 export default function About() {
   return (
@@ -66,7 +67,7 @@ export default function About() {
           </ul>
 
           <div className="about__buttons">
-            <NavLink to="/#contact" className="button">
+            <NavLink to={hashPath('contact')} className="button">
               <i className="ri-send-plane-line"> Contact Me</i>
             </NavLink>
             <a href="https://www.linkedin.com/in/yamen-alkuify-0128142bb/" target="_blank" rel="noreferrer" className="button__ghost">

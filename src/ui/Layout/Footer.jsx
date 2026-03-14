@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SocialLinks from '../common/SocialLinks';
+import { hashPath } from '../../utils/hashPath';
 
 export default function Footer() {
   const variants = {
@@ -32,22 +33,22 @@ export default function Footer() {
 
         <ul className="footer__links">
           <li>
-            <NavLink to="/#about" className="footer__link">
+            <NavLink to={hashPath('about')} className="footer__link">
               About
             </NavLink>
           </li>
           <li>
-            <NavLink to="/#services" className="footer__link">
+            <NavLink to={hashPath('services')} className="footer__link">
               Services
             </NavLink>
           </li>
           <li>
-            <NavLink to="/#projects" className="footer__link">
+            <NavLink to={hashPath('projects')} className="footer__link">
               Projects
             </NavLink>
           </li>
           <li>
-            <NavLink to="/#contact" className="footer__link">
+            <NavLink to={hashPath('contact')} className="footer__link">
               Contact
             </NavLink>
           </li>

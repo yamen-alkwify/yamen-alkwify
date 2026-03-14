@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import NavLinkAnimated from '../common/NavLinkAnimated';
+import { hashPath } from '../../utils/hashPath';
 
 export default function Header({
   navLinks,
@@ -50,7 +51,7 @@ export default function Header({
       animate="visible"
     >
       <nav className="nav container">
-        <motion.a whileHover={{ y: -1 }} href="/#home" className="nav__logo" onClick={onCloseMenu}>
+        <motion.a whileHover={{ y: -1 }} href={hashPath('home')} className="nav__logo" onClick={onCloseMenu}>
           <span className="nav__logo-circle">YK</span>
           <div className="nav__brand">
             <span className="nav__logo-name">Yamen Alkuify</span>
@@ -64,7 +65,7 @@ export default function Header({
           <ul className="nav__list">
             {navLinks.map(({ id, label, isButton }) => (
               <li className="nav__item" key={id}>
-                <NavLinkAnimated to={`/#${id}`} isActive={activeSection === id} onClick={onCloseMenu} className={isButton ? 'nav__link-button' : ''}>
+                <NavLinkAnimated to={hashPath(id)} isActive={activeSection === id} onClick={onCloseMenu} className={isButton ? 'nav__link-button' : ''}>
                   {label}
                 </NavLinkAnimated>
               </li>

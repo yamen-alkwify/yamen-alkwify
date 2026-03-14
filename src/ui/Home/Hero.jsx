@@ -5,6 +5,7 @@ import SocialLinks from '../common/SocialLinks';
 import FloatingBlob from '../common/FloatingBlob';
 import HeroTitleAnimated from '../common/HeroTitleAnimated';
 import { assetPath } from '../../utils/assetPath';
+import { hashPath } from '../../utils/hashPath';
 
 const container = {
   hidden: { opacity: 0 },
@@ -46,10 +47,10 @@ export default function Hero({ typedText }) {
             <PrimaryButton href={assetPath('assets/img/cv/yamenCV.pdf')} target="_blank" rel="noreferrer">
               Download CV
             </PrimaryButton>
-            <GhostButton as="a" href="/#projects">
+            <GhostButton as="a" href={hashPath('projects')}>
               View Projects
             </GhostButton>
-            <TextButton as={NavLink} to="/#contact" className="hero__text-link">
+            <TextButton as={NavLink} to={hashPath('contact')} className="hero__text-link">
               Contact Me <i className="ri-arrow-right-up-line" />
             </TextButton>
           </motion.div>
@@ -84,7 +85,7 @@ export default function Hero({ typedText }) {
                 </motion.span>
               ))}
             </div>
-            <NavLink to="/#about" className="home__scroll hero__scroll">
+            <NavLink to={hashPath('about')} className="home__scroll hero__scroll">
               <div className="home__scroll-box">
                 <i className="ri-arrow-down-s-line" />
               </div>
