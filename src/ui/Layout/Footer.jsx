@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SocialLinks from '../common/SocialLinks';
+import BrandLockup from '../common/BrandLockup';
 import { hashPath } from '../../utils/hashPath';
 
 export default function Footer() {
@@ -14,11 +15,7 @@ export default function Footer() {
       <div className="footer__container container grid footer__grid">
         <div className="footer__brand">
           <div className="footer__logo">
-            <span className="nav__logo-circle footer__logo-circle">YK</span>
-            <div>
-              <p className="footer__logo-name">Yamen Alkuify</p>
-              <p className="footer__tagline">Frontend Engineer</p>
-            </div>
+            <BrandLockup className="brand-lockup--footer" />
           </div>
           <p className="footer__note">Designing seamless experiences with clean code and thoughtful interfaces.</p>
           <SocialLinks
@@ -56,10 +53,10 @@ export default function Footer() {
 
         <span className="footer__copy">
           &#169; All Rights Reserved By{' '}
-          <a href="https://github.com/AbdullahAljojo" target="_blank" rel="noreferrer">
-            Abdullah Al Joujou
+          <a href="www.linkedin.com/in/yamen-alkuify-0128142bb" target="_blank" rel="noreferrer">
+           Eng Yamen alkuify
           </a>
-        </span>
+        </span> 
       </div>
     </motion.footer>
   );

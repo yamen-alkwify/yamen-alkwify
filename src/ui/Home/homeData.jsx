@@ -57,27 +57,69 @@ export const services = [
 
 export const skillRows = [
   [
-    { name: 'React', img: img('skills/react.svg'), alt: 'React' },
-    { name: 'Dart', img: img('skills/dart.png'), alt: 'Dart' },
-    { name: 'Flutter', img: img('skills/flutter.png'), alt: 'Flutter' },
-    { name: 'Firebase', img: img('skills/firebase.png'), alt: 'Firebase' },
-    { name: 'java', img: img('skills/java.png'), alt: 'Java' },
-    { name: 'JavaScript', img: img('skills/js.png'), alt: 'JavaScript' },
-    { name: 'Python', img: img('skills/python.png'), alt: 'Python' },
-    { name: '<HTML/>', img: img('skills/html.png'), alt: 'HTML' },
-    { name: '.CSS{ }', img: img('skills/css.png'), alt: 'CSS' },
-  ],
-  [
-    { name: 'Postman', img: img('skills/postman.svg'), alt: 'Postman' },
-    { name: 'Linux', img: img('skills/linux.png'), alt: 'Linux' },
-    { name: 'C#', img: img('skills/cc.png'), alt: 'C#' },
-    { name: 'C', img: img('skills/c.png'), alt: 'C' },
-    { name: 'C++', img: img('skills/c++.png'), alt: 'C++' },
-    { name: 'GitHub', img: img('skills/github.png'), alt: 'GitHub' },
-    { name: 'Git', img: img('skills/git.png'), alt: 'Git' },
-    { name: 'Figma', img: img('skills/figma.png'), alt: 'Figma' },
-    { name: 'Adobe XD', img: img('skills/xd.png'), alt: 'Adobe XD' },
-    { name: 'Photoshop', img: img('skills/ps.png'), alt: 'Photoshop' },
+    {
+      name: 'Flutter',
+      img: img('skills/flutter-pro.svg'),
+      alt: 'Flutter',
+      eyebrow: 'Mobile Delivery',
+      description: 'Production Flutter apps with scalable architecture, clean state handling, and release-ready execution.',
+    },
+    {
+      name: 'React',
+      img: img('skills/react.svg'),
+      alt: 'React',
+      eyebrow: 'Web Interfaces',
+      description: 'Frontend delivery for dashboards and products that need clean structure, performance, and integration-ready UI.',
+    },
+    {
+      name: 'Swift Native',
+      img: img('skills/swift-native.svg'),
+      alt: 'Swift Native',
+      eyebrow: 'iOS Depth',
+      description: 'Native iOS delivery when the product needs tighter platform behavior, refinement, or device-level control.',
+    },
+    {
+      name: 'Jira',
+      img: img('skills/jira.svg'),
+      alt: 'Jira',
+      eyebrow: 'Delivery Control',
+      description: 'Sprint planning, dependencies, and reporting structured in a way stakeholders and teams can actually follow.',
+    },
+    {
+      name: 'ClickUp',
+      img: img('skills/clickup.svg'),
+      alt: 'ClickUp',
+      eyebrow: 'Operational Tracking',
+      description: 'Fast-moving execution boards, docs, and status flows for teams that need visibility without extra noise.',
+    },
+    {
+      name: 'UML',
+      img: img('skills/uml.svg'),
+      alt: 'UML',
+      eyebrow: 'System Modeling',
+      description: 'Use case, sequence, activity, and class diagrams that make technical decisions easier before implementation.',
+    },
+    {
+      name: 'CI/CD',
+      img: img('skills/cicd.svg'),
+      alt: 'CI/CD',
+      eyebrow: 'Release Automation',
+      description: 'Pipelines for testing, build validation, and safer releases that reduce manual steps across environments.',
+    },
+    {
+      name: 'Deployment',
+      img: img('skills/deployment.svg'),
+      alt: 'Deployment',
+      eyebrow: 'Production Release',
+      description: 'Controlled rollout, environment readiness, and monitoring-aware launches that keep delivery stable.',
+    },
+    {
+      name: 'SRS',
+      img: img('skills/srs.svg'),
+      alt: 'SRS',
+      eyebrow: 'Requirements Baseline',
+      description: 'Requirement specifications that reduce ambiguity and keep business, analysis, and engineering aligned.',
+    },
   ],
 ];
 
@@ -116,33 +158,33 @@ export const projects = [
     description:
       'Bringing convenience to the Damascus countryside, Wasena ensures swift and reliable delivery services. Seamlessly order, track, and receive your packages with ease, catering to both residents and businesses alike. Experience prompt delivery solutions tailored to your needs, all at your fingertips.',
     links: [
-      { href: 'https://github.com/AbdullahAljojo/Wasena-App', label: 'View', icon: 'ri-github-line' },
+      { href: 'https://gitlab.com/alyameen1354/awa', label: 'View', icon: 'ri-github-line' },
       {
-        href: 'https://www.instagram.com/wasena.hon?igsh=OXl3NXk1cmtrMHlu',
+        href: 'https://www.instagram.com/awa_real_estate/',
         label: 'Visit',
         icon: 'ri-instagram-line',
       },
-      { href: 'https://play.google.com/store/apps/details?id=com.wasena.app', label: 'Google Play', icon: 'ri-google-play-line' },
-      { href: 'https://apps.apple.com/us/app/wasena/id6504331081', label: 'App Store', icon: 'ri-apple-fill' },
+      { href: 'https://play.google.com/store/apps/details?id=com.awa.realestatepriv', label: 'Google Play', icon: 'ri-google-play-line' },
+      { href: 'https://apps.apple.com/au/app/awa-aqar/id6761497066', label: 'App Store', icon: 'ri-apple-fill' },
     ],
-    tags: ['#Flutter', '#Bloc', '#Cubit', '#Firebase'],
-    secondaryTags: ['#PHP', '#curl', '#Mysql'],
-    buttonOverlay: { href: 'https://play.google.com/store/apps/details?id=com.wasena.app', icon: 'ri-google-play-line' },
+    tags: ['UML', 'RE', 'WBS',],
+    secondaryTags: ['#Flutter', '#React.js', '#Express', '#Firebase','cashing'],
+    buttonOverlay: { href: 'https://apps.apple.com/au/app/awa-aqar/id6761497066', icon: 'ri-google-play-line' },
   },
   {
-    image: img('quizon.jpg'),
-    subtitle: 'project at (PionneNetwork Company)',
-    title: 'QuizOn App',
+    image: img('qanoun.jpg'),
+    subtitle: 'Qanoun AI',
+    title: 'Qanoun AI',
     description:
       'Quizon is a high-quality quiz app template that allows users to test and improve their knowledge while earning coins for each correct answer. The app boasts a modern design with a clean and user-friendly interface.',
     links: [
-      { href: 'https://drive.google.com/drive/u/0/folders/1oEOvF58MoWa7X1IeeC3kZUmNAYNX90O4', label: 'View', icon: 'ri-github-line' },
-      { href: 'https://sa.pioneers.network', label: 'Visit', icon: 'ri-code-box-line' },
-      { href: 'https://play.google.com/store/apps/details?id=com.flutter.quizon', label: 'Google Play', icon: 'ri-google-play-line' },
+      { href: 'https://qanun-ai.com/', label: 'View', icon: 'ri-github-line' },
+      { href: 'https://qanun-ai.com/', label: 'Visit', icon: 'ri-code-box-line' },
+      { href: 'https://qanun-ai.com/', label: 'Google Play', icon: 'ri-google-play-line' },
     ],
-    tags: ['#Flutter', '#Firebase'],
-    secondaryTags: ['#GetX', '#MVC'],
-    buttonOverlay: { href: 'https://play.google.com/store/apps/details?id=com.flutter.quizon', icon: 'ri-google-play-line' },
+    tags: ['Requirement engineering', 'UML','WBS','Jira'],
+    secondaryTags: ['#React.js', '#Flutter','#Nest.js'],
+    buttonOverlay: { href: 'https://qanun-ai.com/', icon: 'ri-google-play-line' },
   },
   {
     image: img('clinic.jpg'),
@@ -267,10 +309,40 @@ export const projects = [
 ];
 
 export const experiences = [
+  
+{
+  company: 'Lumi.AI · FreeZoon',
+  role: 'Tech Lead',
+  period: '02/2026 - Present',
+  location: 'Damascus',
+  href: 'https://lumiai-agency.com/',
+  logo: img('lumi.png'),
+  summary:
+    'Leading technical strategy and system architecture for scalable mobile solutions, driving engineering excellence, enforcing Clean Architecture (MVVM), and ensuring high performance, reliability, and maintainability across projects.',
+  highlights: [
+   
+    '• Led technical decision-making and translated business requirements into robust, scalable engineering solutions.',
+    '• Established code review culture, best practices, and development guidelines to improve code quality.',
+    '• Mentored developers, conducted technical training, and improved overall team productivity.',
+    '• Collaborated with product and stakeholders to align technical execution with business goals.'
+  ],
+  stack: [
+    'System Design',
+    'CI/CD',
+    'Clean Architecture',
+    'UML',
+    'SRS',
+    'Requirements Engineering',
+    'Jira',
+    'WBS'
+  ],
+  impact: 'Improved system scalability, reduced technical debt, and increased team velocity while delivering production-ready solutions.',
+  accent: 'linear-gradient(135deg, hsla(212, 98%, 50%, 0.95), hsla(171, 69%, 53%, 0.85))',
+},
   {
     company: 'Lumi.AI · FreeZoon',
     role: 'Flutter Developer',
-    period: '03/2025 - Present',
+    period: '03/2025 - 01/2026 ',
     location: 'Damascus',
     href: 'https://lumiai-agency.com/',
     logo: img('lumi.png'),

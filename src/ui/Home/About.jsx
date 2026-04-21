@@ -1,78 +1,67 @@
 import { NavLink } from 'react-router-dom';
+import { PrimaryButton, GhostButton } from '../common/Button';
 import { assetPath } from '../../utils/assetPath';
 import { hashPath } from '../../utils/hashPath';
+
+const signals = ['Tech Lead', 'System Analyst', 'Project Advisory', 'Flutter + Swift Native'];
 
 export default function About() {
   return (
     <section className="about section" id="about">
-      <div className="about__container container grid">
-        <h2 className="section__title-1">
-          <span> Overview .</span>
-        </h2>
-
-        <div className="about__perfil">
+      <div className="about__container container">
+        <div className="about__media">
           <div className="about__image">
-            <img src={assetPath('assets/img/home-perfill.png')} alt="About" className="about__img" />
-            <div className="about__shadow" />
-            <div className="geometric-box" />
-            <img src={assetPath('assets/img/random-lines.svg')} alt="lines" className="about__line" />
-            <div className="about__box" />
+            <img src={assetPath('assets/img/home-perfill.png')} alt="Yamen Alkuify portrait" className="about__img" />
+
+            <div className="about__plaque">
+              <span className="about__plaque-label">Primary Positioning</span>
+              <strong>Tech Lead + System Analyst</strong>
+            </div>
           </div>
         </div>
 
         <div className="about__info">
+          <p className="about__eyebrow">Executive Overview</p>
+
+          <h2 className="about__title">
+            Technical leadership,
+            <span className="about__title-accent"> systems analysis,</span>
+            and refined project advisory.
+          </h2>
+
           <p className="about__description">
-            <b>Yamen Alkuify</b>,  Information technology engineer, specializing in Software
-            Engineering, System analyst and Mobile Apps developer with 5 years of work experience using various techniques such as Flutter , Dart,
-            React, C++, HTML, CSS . . .
+            I work primarily as a <strong>Tech Lead</strong> and <strong>System Analyst</strong>, helping organizations define
+            technical direction, structure delivery, and turn business needs into execution-ready systems.
           </p>
 
-          <ul className="about__list">
-            <li className="about__item">
-              <b>
-                <i className="ri-arrow-right-s-line" style={{ color: 'hsla(212, 89%, 61%, 0.687)' }} />
-                {' '}
-                Birthday:
-              </b>
-              {' '}
-              10 April 2001
-            </li>
-            <li className="about__item">
-              <b>
-                <i className="ri-arrow-right-s-line" style={{ color: 'hsla(212, 89%, 61%, 0.687)' }} />
-                {' '}
-                Phone:
-              </b>
-              +963 983 089 150
-            </li>
-          </ul>
+          <p className="about__description about__description--secondary">
+            I also consult on <strong>projects</strong>, <strong>software products</strong>, and
+            <strong> technical systems</strong>, with a strong focus on project management, governance, and clear technical
+            decision-making, while still delivering mobile products with <strong>Flutter</strong> and
+            <strong> Swift Native</strong> when needed.
+          </p>
 
-          <ul className="about__list">
-            <li className="about__item">
-              <b>
-                <i className="ri-arrow-right-s-line" style={{ color: 'hsla(212, 89%, 61%, 0.687)' }} />
-                {' '}
-                City:
-              </b>
-              Damascus, Syria
-            </li>
-            <li className="about__item">
-              <b>
-                <i className="ri-arrow-right-s-line" style={{ color: 'hsla(212, 89%, 61%, 0.687)' }} />
-                {' '}
-                Freelance:
-              </b>
-              Available
-            </li>
-          </ul>
+          <div className="about__signals">
+            {signals.map((signal) => (
+              <span className="about__signal" key={signal}>
+                {signal}
+              </span>
+            ))}
+          </div>
 
           <div className="about__buttons">
-            <NavLink to={hashPath('contact')} className="button">
-              <i className="ri-send-plane-line"> Contact Me</i>
-            </NavLink>
-            <a href="https://www.linkedin.com/in/yamen-alkuify-0128142bb/" target="_blank" rel="noreferrer" className="button__ghost">
+            <PrimaryButton as={NavLink} to={hashPath('contact')}>
+              Discuss Advisory Work
+              <i className="ri-arrow-right-up-line" />
+            </PrimaryButton>
+            <GhostButton
+              href="https://www.linkedin.com/in/yamen-alkuify-0128142bb/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
               <i className="ri-linkedin-box-line" />
-            </a>
+            </GhostButton>
           </div>
         </div>
       </div>

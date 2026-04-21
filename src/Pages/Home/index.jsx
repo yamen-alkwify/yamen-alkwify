@@ -6,15 +6,11 @@ import {
   Services,
   Skills,
   Experience,
-  OtherSkills,
   Projects,
   Contact,
   ScrollUp,
-  services,
   skillRows,
   experiences,
-  otherSkills,
-  projects,
   typingTexts,
 } from '../../ui/Home';
 
@@ -44,12 +40,12 @@ export default function HomePage() {
       delay: 500,
     });
 
-    sr.reveal('.home__perfil, .about__image, .contact__mail', { origin: 'right' });
+    sr.reveal('.home__perfil, .about__image, .services__spotlight, .contact__mail', { origin: 'right' });
     sr.reveal(
-      '.home__name, .home__info, .about__container, .section__title-1, .skills__header, .about__info, .contact__social, .contact__data',
+      '.home__name, .home__info, .about__container, .services__intro, .section__title-1, .skills__header, .about__info, .contact__social, .contact__data',
       { origin: 'left' },
     );
-    sr.reveal('.services__card, .projects__card, .experience__card, .skills__rail, .other-skill', { interval: 180 });
+    sr.reveal('.services__card, .projects__showcase, .experience__stage, .skills__stage', { interval: 180 });
   }, []);
 
   useEffect(() => {
@@ -119,11 +115,10 @@ export default function HomePage() {
       <main className="main">
         <Hero typedText={typedText} />
         <About />
-        <Services services={services} />
+        <Services />
         <Skills skillRows={skillRows} />
         <Experience experiences={experiences} />
-        <OtherSkills otherSkills={otherSkills} />
-        <Projects projects={projects} />
+        <Projects />
         <Contact formRef={formRef} formStatus={formStatus} onSubmit={handleSubmit} />
       </main>
 

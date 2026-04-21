@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import useMediaQuery from '../../hooks/useMediaQuery';
 import NavLinkAnimated from '../common/NavLinkAnimated';
+import BrandLockup from '../common/BrandLockup';
 import { hashPath } from '../../utils/hashPath';
 
 export default function Header({
@@ -52,11 +53,7 @@ export default function Header({
     >
       <nav className="nav container">
         <motion.a whileHover={{ y: -1 }} href={hashPath('home')} className="nav__logo" onClick={onCloseMenu}>
-          <span className="nav__logo-circle">YK</span>
-          <div className="nav__brand">
-            <span className="nav__logo-name">Yamen Alkuify</span>
-            <span className="nav__logo-role"> Software engineer</span>
-          </div>
+          <BrandLockup className="brand-lockup--header" />
         </motion.a>
 
         <div className={`nav__menu ${menuOpen ? 'show-menu' : ''}`} id="nav-menu" aria-hidden={isDesktop ? false : !menuOpen}>
