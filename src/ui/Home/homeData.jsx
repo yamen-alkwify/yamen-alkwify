@@ -136,7 +136,7 @@ export const otherSkills = [
 
 export const projects = [
   {
-    image: img('savi.png'),
+    image: img('22.png'),
     subtitle: 'SAVI MALL',
     title: 'SAVI',
     description:
@@ -172,7 +172,7 @@ export const projects = [
     buttonOverlay: { href: 'https://apps.apple.com/au/app/awa-aqar/id6761497066', icon: 'ri-google-play-line' },
   },
   {
-    image: img('qanoun.jpg'),
+    image: img('11.png'),
     subtitle: 'Qanoun AI',
     title: 'Qanoun AI',
     description:

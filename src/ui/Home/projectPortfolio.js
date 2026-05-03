@@ -11,7 +11,7 @@ export const projectPortfolio = [
     role: 'Flutter Developer',
     period: 'Production launch',
     status: 'Live product',
-    image: img('savi.png'),
+    image: img('22.png'),
     accent: 'linear-gradient(135deg, rgba(255, 198, 53, 0.92), rgba(244, 111, 29, 0.9))',
     summary:
       'A market-facing commerce application shaped around search clarity, product discovery, and smoother order visibility for end users.',
@@ -39,7 +39,7 @@ export const projectPortfolio = [
     role: 'Flutter Developer',
     period: 'Professional launch',
     status: 'Web production release',
-    image: img('qanoun.jpg'),
+    image: img('11.png'),
     accent: 'linear-gradient(135deg, rgba(255, 187, 76, 0.9), rgba(203, 117, 33, 0.92))',
     summary:
       'A professional production launch for a web-first legal AI product, with release refinement and cleaner notification behavior.',

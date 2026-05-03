@@ -92,7 +92,14 @@ export default function Projects() {
                   </div>
 
                   {project.image ? (
-                    <img src={project.image} alt={project.title} className="projects__feature-image" />
+                    <div className="projects__feature-media">
+                      <div
+                        className="projects__feature-backdrop"
+                        style={{ backgroundImage: `url(${project.image})` }}
+                        aria-hidden="true"
+                      />
+                      <img src={project.image} alt={project.title} className="projects__feature-image" />
+                    </div>
                   ) : (
                     <div className="projects__feature-placeholder">
                       <span className="projects__feature-monogram">{project.placeholderMonogram}</span>
