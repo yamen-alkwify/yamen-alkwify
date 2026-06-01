@@ -1,136 +1,45 @@
-import { useEffect, useRef, useState } from 'react';
+import { useMemo } from 'react';
+import { motion } from 'framer-motion';
 import AnimatedSection from '../common/AnimatedSection';
-
-function getCircularOffset(index, activeIndex, total) {
-  let offset = index - activeIndex;
-  if (offset > total / 2) offset -= total;
-  if (offset < -total / 2) offset += total;
-  return offset;
-}
 
 function cleanText(value) {
   return String(value ?? '')
-    .replace(/Ã‚Â·|Â·/g, '·')
-    .replace(/Ã¢â‚¬Â¢\s*|â€¢\s*/g, '')
+    .replace(/\u00c2\u00b7/g, ' - ')
+    .replace(/\u2022\s*/g, '')
+    .replace(/\u00e2\u20ac\u00a2\s*/g, '')
+    .replace(/\u00e2\u20ac\u201d/g, ' - ')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
-export default function Experience({ experiences }) {
-  const items = experiences.map((item) => ({
+function getInitials(value) {
+  return cleanText(value)
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((word) => word[0])
+    .join('')
+    .toUpperCase();
+}
+
+function normalizeExperience(item) {
+  const summary = cleanText(item.summary);
+
+  return {
     ...item,
     company: cleanText(item.company),
     role: cleanText(item.role),
+    period: cleanText(item.period),
     location: cleanText(item.location),
-    summary: cleanText(item.summary),
-    impact: cleanText(item.impact || item.summary),
-    highlights: item.highlights.map(cleanText),
-    stack: item.stack.map(cleanText),
-  }));
-
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragProgress, setDragProgress] = useState(0);
-  const dragState = useRef({ isDragging: false, startX: 0, deltaX: 0, moved: false });
-  const suppressClickTimer = useRef(null);
-  const sceneRef = useRef(null);
-
-  const rotateTo = (direction) => {
-    setActiveIndex((current) => (current + direction + items.length) % items.length);
+    summary,
+    impact: cleanText(item.impact || summary),
+    highlights: (item.highlights || []).map(cleanText).filter(Boolean),
+    stack: (item.stack || []).map(cleanText).filter(Boolean),
   };
+}
 
-  const setSceneTilt = (rotateY, rotateX, glowX = '50%', glowY = '50%') => {
-    const scene = sceneRef.current;
-    if (!scene) return;
-
-    scene.style.setProperty('--experience-rotate-y', `${rotateY}deg`);
-    scene.style.setProperty('--experience-rotate-x', `${rotateX}deg`);
-    scene.style.setProperty('--experience-glow-x', glowX);
-    scene.style.setProperty('--experience-glow-y', glowY);
-  };
-
-  useEffect(() => {
-    if (isDragging || items.length <= 1) return undefined;
-
-    const timer = window.setInterval(() => {
-      setActiveIndex((current) => (current + 1) % items.length);
-    }, 8000);
-
-    return () => window.clearInterval(timer);
-  }, [isDragging, items.length]);
-
-  useEffect(
-    () => () => {
-      window.clearTimeout(suppressClickTimer.current);
-    },
-    [],
-  );
-
-  const handlePointerDown = (event) => {
-    if (items.length <= 1) return;
-
-    dragState.current = {
-      isDragging: true,
-      startX: event.clientX,
-      deltaX: 0,
-      moved: false,
-    };
-    setIsDragging(true);
-    setDragProgress(0);
-    setSceneTilt(0, 0);
-    event.currentTarget.setPointerCapture?.(event.pointerId);
-  };
-
-  const handlePointerMove = (event) => {
-    if (!dragState.current.isDragging) return;
-
-    const deltaX = event.clientX - dragState.current.startX;
-    dragState.current.deltaX = deltaX;
-
-    if (Math.abs(deltaX) > 8) {
-      dragState.current.moved = true;
-    }
-
-    setDragProgress(Math.max(-1, Math.min(1, deltaX / 180)));
-  };
-
-  const handlePointerUp = (event) => {
-    if (!dragState.current.isDragging) return;
-
-    const deltaX = dragState.current.deltaX;
-    if (Math.abs(deltaX) >= 70) {
-      rotateTo(deltaX < 0 ? 1 : -1);
-    }
-
-    dragState.current.isDragging = false;
-    dragState.current.deltaX = 0;
-    setIsDragging(false);
-    setDragProgress(0);
-
-    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
-
-    window.clearTimeout(suppressClickTimer.current);
-    suppressClickTimer.current = window.setTimeout(() => {
-      dragState.current.moved = false;
-    }, 120);
-  };
-
-  const handleMouseMove = (event) => {
-    if (dragState.current.isDragging || !sceneRef.current) return;
-
-    const rect = sceneRef.current.getBoundingClientRect();
-    const relativeX = (event.clientX - rect.left) / rect.width;
-    const relativeY = (event.clientY - rect.top) / rect.height;
-
-    setSceneTilt((relativeX - 0.5) * 4.8, (0.5 - relativeY) * 3.2, `${relativeX * 100}%`, `${relativeY * 100}%`);
-  };
-
-  const handleMouseLeave = () => {
-    if (dragState.current.isDragging) return;
-    setSceneTilt(0, 0);
-  };
+export default function Experience({ experiences = [] }) {
+  const items = useMemo(() => experiences.map(normalizeExperience), [experiences]);
 
   return (
     <AnimatedSection className="experience section" id="experience">
@@ -140,106 +49,95 @@ export default function Experience({ experiences }) {
           <span>Experience.</span>
         </h2>
         <p className="experience__lead">
-          Leadership, systems thinking, and product delivery across roles where structure, reliability, and execution
-          quality mattered most.
+          Every role is expanded with the full summary, details, impact, and scope.
         </p>
       </div>
 
-      <div className={`experience__stage container${isDragging ? ' experience__stage--dragging' : ''}`}>
-        <div
-          ref={sceneRef}
-          className="experience__scene"
-          onPointerDown={handlePointerDown}
-          onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
-          onPointerCancel={handlePointerUp}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-        >
-          {items
-            .map((item, index) => ({
-              ...item,
-              index,
-              offset: getCircularOffset(index, activeIndex, items.length) + dragProgress,
-            }))
-            .sort((a, b) => Math.abs(b.offset) - Math.abs(a.offset))
-            .map((item) => {
-              const distance = Math.abs(item.offset);
-              const isActive = item.index === activeIndex;
+      <div className="experience__layout experience__layout--stacked container">
+        <div className="experience__timeline" aria-label="Full experience timeline">
+          {items.map((item, index) => (
+            <motion.article
+              key={`${item.company}-${item.role}-${item.period}`}
+              className="experience-detail experience-detail--timeline"
+              style={{ '--experience-accent': item.accent }}
+              initial={{ opacity: 0, y: 28, filter: 'blur(8px)' }}
+              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              viewport={{ once: true, amount: 0.18 }}
+              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: Math.min(index * 0.05, 0.2) }}
+            >
+              <span className="experience-detail__timeline-marker" aria-hidden="true">
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span className="experience-detail__glow" aria-hidden="true" />
 
-              return (
-                <article
-                  className={`experience-orbit${isActive ? ' experience-orbit--active' : ''}`}
-                  key={`${item.company}-${item.role}`}
-                  style={{
-                    '--offset': item.offset,
-                    '--distance': distance,
-                    '--experience-accent': item.accent,
-                  }}
-                  onClick={() => {
-                    if (dragState.current.moved) return;
-                    setActiveIndex(item.index);
-                  }}
-                >
-                  <span className="experience-orbit__glow" aria-hidden />
-
-                  <div className="experience-orbit__head">
-                    <div className="experience-orbit__brand">
-                      {item.href ? (
-                        <a href={item.href} target="_blank" rel="noreferrer" className="experience-orbit__logo-link">
-                          <div className="experience-orbit__logo">
-                            {item.logo ? <img src={item.logo} alt={`${item.company} logo`} /> : <span>{item.company.slice(0, 2)}</span>}
-                          </div>
-                        </a>
-                      ) : (
-                        <div className="experience-orbit__logo">
-                          {item.logo ? <img src={item.logo} alt={`${item.company} logo`} /> : <span>{item.company.slice(0, 2)}</span>}
-                        </div>
-                      )}
-
-                      <div className="experience-orbit__meta">
-                        <span className="experience-orbit__period">{item.period}</span>
-                        <span className="experience-orbit__location">{item.location}</span>
-                      </div>
-                    </div>
-
-                    {item.href && (
-                      <a href={item.href} target="_blank" rel="noreferrer" className="experience-orbit__visit">
-                        <i className="ri-arrow-right-up-line" />
-                      </a>
+              <div className="experience-detail__header">
+                <div className="experience-detail__brand">
+                  <div className="experience-detail__logo">
+                    {item.logo ? (
+                      <img src={item.logo} alt={`${item.company} logo`} loading="lazy" />
+                    ) : (
+                      <span>{getInitials(item.company)}</span>
                     )}
                   </div>
 
-                  <div className="experience-orbit__title">
-                    <h3>{item.role}</h3>
+                  <div className="experience-detail__headline">
                     <p>{item.company}</p>
+                    <h3>{item.role}</h3>
                   </div>
+                </div>
 
-                  <p className="experience-orbit__summary">{item.summary}</p>
+                {item.href && (
+                  <a href={item.href} target="_blank" rel="noreferrer" className="experience-detail__visit">
+                    <span>Visit</span>
+                    <i className="ri-arrow-right-up-line" aria-hidden="true" />
+                  </a>
+                )}
+              </div>
 
-                  <ul className="experience-orbit__highlights">
+              <div className="experience-detail__meta">
+                <span>
+                  <i className="ri-calendar-line" aria-hidden="true" />
+                  {item.period}
+                </span>
+                <span>
+                  <i className="ri-map-pin-2-line" aria-hidden="true" />
+                  {item.location}
+                </span>
+              </div>
+
+              <p className="experience-detail__summary">{item.summary}</p>
+
+              <div className="experience-detail__content">
+                <section className="experience-detail__block">
+                  <p className="experience-detail__label">Full Details</p>
+                  <ul className="experience-detail__list">
                     {item.highlights.map((highlight) => (
                       <li key={highlight}>
-                        <i className="ri-sparkling-2-line" />
+                        <i className="ri-sparkling-2-line" aria-hidden="true" />
                         <span>{highlight}</span>
                       </li>
                     ))}
                   </ul>
+                </section>
 
-                  <div className="experience-orbit__footer">
-                    <p className="experience-orbit__impact">{item.impact}</p>
+                <section className="experience-detail__block experience-detail__block--impact">
+                  <p className="experience-detail__label">Impact</p>
+                  <p className="experience-detail__impact">{item.impact}</p>
+                </section>
+              </div>
 
-                    <div className="experience-orbit__tags">
-                      {item.stack.map((tech) => (
-                        <span className="experience-orbit__tag" key={tech}>
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </article>
-              );
-            })}
+              <div className="experience-detail__stack">
+                <p className="experience-detail__label">Stack & Scope</p>
+                <div className="experience-detail__tags">
+                  {item.stack.map((tech) => (
+                    <span className="experience-detail__tag" key={tech}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </AnimatedSection>

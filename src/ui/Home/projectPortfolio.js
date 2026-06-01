@@ -2,7 +2,7 @@ import { assetPath } from '../../utils/assetPath';
 
 const img = (path) => assetPath(`assets/img/${path}`);
 
-export const projectPortfolio = [
+const projectPortfolioItems = [
   {
     id: 'savi',
     title: 'SAVI App',
@@ -219,3 +219,9 @@ export const projectPortfolio = [
     links: [{ kind: 'private', label: 'Private Release' }],
   },
 ];
+
+const featuredProjectOrder = ['qanun-ai', 'awa', 'savi', 'patternstock', 'kk-orders', 'kk-warehouse', 'zikzak', 'wasena'];
+
+export const projectPortfolio = featuredProjectOrder
+  .map((projectId) => projectPortfolioItems.find((project) => project.id === projectId))
+  .filter(Boolean);
