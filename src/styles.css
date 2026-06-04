@@ -8904,3 +8904,365 @@ transition: color .4s;
         width: 100%;
     }
 }
+
+/*================ MOBILE FLOW QA ==================*/
+@media screen and (max-width: 768px){
+    html{
+        scroll-padding-top: calc(var(--header-height) + .85rem);
+    }
+
+    [data-sr-id]{
+        opacity: 1 !important;
+        transform: none !important;
+        visibility: visible !important;
+    }
+
+    .main{
+        overflow-x: clip;
+        padding-bottom: 5.25rem;
+    }
+
+    .container{
+        width: auto;
+    }
+
+    .section{
+        padding-block: 2.75rem 1.45rem;
+        scroll-margin-top: calc(var(--header-height) + .85rem);
+    }
+
+    .section__title-1,
+    .section__title-2{
+        width: fit-content;
+        max-width: 100%;
+        margin: .25rem auto 1rem;
+        font-size: clamp(2.05rem, 10vw, 2.8rem);
+        line-height: 1;
+        letter-spacing: 0;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .hero{
+        padding-top: calc(var(--header-height) + 1.55rem);
+        padding-bottom: 1.35rem;
+    }
+
+    .hero__grid{
+        gap: 1.25rem;
+    }
+
+    .hero__intro{
+        gap: .9rem;
+    }
+
+    .hero__meta,
+    .hero__social-row{
+        gap: .55rem;
+    }
+
+    .hero__pill{
+        padding: .58rem .78rem;
+        font-size: .78rem;
+    }
+
+    .hero__title{
+        font-size: clamp(2.85rem, 15vw, 4.1rem);
+        letter-spacing: 0;
+    }
+
+    .hero__dynamic-panel{
+        padding: .82rem .92rem;
+        border-radius: 1.05rem;
+    }
+
+    .hero__lede{
+        line-height: 1.55;
+    }
+
+    .hero__cta{
+        gap: .65rem;
+    }
+
+    .hero__cta .btn{
+        min-height: 3rem;
+        border-radius: .9rem;
+    }
+
+    .hero__stage{
+        width: min(100%, 19.25rem);
+    }
+
+    .hero__frame{
+        padding: .65rem;
+        border-radius: 1.45rem;
+    }
+
+    .hero__portrait-shell{
+        width: min(100%, 18rem);
+    }
+
+    .about__container,
+    .services__shell,
+    .projects__showcase,
+    .experience__layout,
+    .contact__container,
+    .contact__shell{
+        gap: 1.1rem;
+    }
+
+    .about__info{
+        gap: .8rem;
+    }
+
+    .about__image{
+        width: min(100%, 21rem);
+        padding: .65rem;
+        margin-inline: auto;
+    }
+
+    .about__img{
+        aspect-ratio: .82;
+    }
+
+    .about__plaque{
+        padding: .85rem 1rem;
+        border-radius: 1.1rem;
+    }
+
+    .about__title{
+        font-size: clamp(1.9rem, 9.5vw, 2.55rem);
+        line-height: 1.05;
+        letter-spacing: 0;
+        overflow-wrap: anywhere;
+    }
+
+    .about__description{
+        font-size: .95rem;
+        line-height: 1.65;
+    }
+
+    .about__signals{
+        gap: .5rem;
+    }
+
+    .services__intro,
+    .services__stage{
+        gap: 1rem;
+    }
+
+    .services__headline{
+        font-size: clamp(2rem, 9.5vw, 2.65rem);
+        line-height: 1.04;
+        letter-spacing: 0;
+    }
+
+    .services__lede,
+    .skills__lede,
+    .experience__lead,
+    .projects__lede{
+        font-size: .92rem;
+        line-height: 1.62;
+    }
+
+    .services__grid{
+        gap: .85rem;
+    }
+
+    .services__spotlight,
+    .services .services__card{
+        padding: .8rem;
+        border-radius: 1.25rem;
+    }
+
+    .services__spotlight-panel{
+        padding: 1rem;
+        gap: .8rem;
+    }
+
+    .skills__header,
+    .experience__header,
+    .projects__header{
+        margin-bottom: 1rem;
+        gap: .45rem;
+    }
+
+    .skills__stage,
+    .skills__scene{
+        min-height: 24rem;
+    }
+
+    .skill-orbit{
+        width: min(16rem, calc(100% - .75rem));
+        min-height: 20.5rem;
+        padding: .85rem;
+    }
+
+    .experience__layout--stacked{
+        max-width: min(100%, 34rem);
+    }
+
+    .experience__timeline{
+        gap: .9rem;
+        padding-left: 0;
+    }
+
+    .experience-detail,
+    .experience-detail--timeline{
+        gap: .85rem;
+        padding: .9rem;
+        border-radius: 1.25rem;
+    }
+
+    .experience-detail--timeline .experience-detail__header{
+        display: grid;
+        gap: .7rem;
+    }
+
+    .experience-detail__brand,
+    .experience-detail--timeline .experience-detail__brand{
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: .7rem;
+        align-items: center;
+    }
+
+    .experience-detail--timeline .experience-detail__logo{
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 1rem;
+    }
+
+    .experience-detail__headline p{
+        font-size: .78rem;
+    }
+
+    .experience-detail--timeline .experience-detail__headline h3{
+        font-size: clamp(1.9rem, 9.5vw, 2.55rem);
+        line-height: 1;
+        overflow-wrap: anywhere;
+    }
+
+    .experience-detail__summary{
+        font-size: .9rem;
+        line-height: 1.6;
+    }
+
+    .experience-detail__content{
+        gap: .7rem;
+    }
+
+    .experience-detail__block{
+        padding: .8rem;
+        border-radius: 1rem;
+    }
+
+    .experience-detail__list li{
+        font-size: .84rem;
+        line-height: 1.5;
+    }
+
+    .experience-detail__impact{
+        font-size: .88rem;
+        line-height: 1.55;
+    }
+
+    .experience-detail__meta{
+        gap: .5rem;
+    }
+
+    .experience-detail__meta span{
+        padding: .55rem .65rem;
+        font-size: .75rem;
+    }
+
+    .experience-detail__tag{
+        max-width: 100%;
+        padding: .48rem .58rem;
+        font-size: .7rem;
+        line-height: 1.2;
+        white-space: normal;
+    }
+
+    .experience-detail__visit{
+        min-height: 2.55rem;
+        padding: .65rem .75rem;
+    }
+
+    .projects__list{
+        gap: 1rem;
+    }
+
+    .projects__feature{
+        gap: .8rem;
+        padding: .7rem;
+        border-radius: 1.25rem;
+    }
+
+    .projects__feature-stage{
+        min-height: 22rem;
+        padding: 3.9rem .75rem .75rem;
+        border-radius: 1.1rem;
+    }
+
+    .projects__feature-badges{
+        gap: .45rem;
+    }
+
+    .projects__feature-badge{
+        padding: .46rem .56rem;
+        font-size: .68rem;
+    }
+
+    .projects__feature-shell{
+        gap: .75rem;
+        padding: .85rem;
+        border-radius: 1.1rem;
+    }
+
+    .projects__feature-title{
+        font-size: clamp(1.85rem, 8vw, 2.45rem);
+        line-height: 1;
+        letter-spacing: 0;
+    }
+
+    .projects__feature-summary,
+    .projects__feature-list li{
+        font-size: .86rem;
+        line-height: 1.55;
+    }
+
+    .projects__feature-chip{
+        padding: .48rem .58rem;
+        font-size: .68rem;
+        line-height: 1.2;
+        white-space: normal;
+    }
+
+    .project-action{
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 420px){
+    .container{
+        margin-inline: 1rem;
+    }
+
+    .hero__title{
+        font-size: clamp(2.7rem, 14vw, 3.65rem);
+    }
+
+    .hero__stage{
+        width: min(100%, 17.75rem);
+    }
+
+    .about__image{
+        width: min(100%, 19.5rem);
+    }
+
+    .experience-detail__brand,
+    .experience-detail--timeline .experience-detail__brand{
+        grid-template-columns: 1fr;
+    }
+}

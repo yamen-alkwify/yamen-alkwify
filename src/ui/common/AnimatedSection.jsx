@@ -10,7 +10,13 @@ const variants = {
   },
 };
 
-export default function AnimatedSection({ children, className = '', as: Component = 'section', ...rest }) {
+export default function AnimatedSection({
+  children,
+  className = '',
+  as: Component = 'section',
+  viewport = { once: true, amount: 0.08 },
+  ...rest
+}) {
   return (
     <motion.section
       as={Component}
@@ -18,7 +24,7 @@ export default function AnimatedSection({ children, className = '', as: Componen
       variants={variants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.25 }}
+      viewport={viewport}
       {...rest}
     >
       {children}

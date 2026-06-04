@@ -33,6 +33,13 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
+    const isCompactScreen = window.matchMedia('(max-width: 768px)').matches;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (isCompactScreen || prefersReducedMotion) {
+      return undefined;
+    }
+
     const sr = ScrollReveal({
       origin: 'top',
       distance: '60px',
@@ -45,7 +52,9 @@ export default function HomePage() {
       '.home__name, .home__info, .about__container, .services__intro, .section__title-1, .skills__header, .about__info, .contact__social, .contact__data',
       { origin: 'left' },
     );
-    sr.reveal('.services__card, .projects__showcase, .experience__stage, .skills__stage', { interval: 180 });
+    sr.reveal('.services__card, .projects__showcase, .experience__layout, .skills__stage', { interval: 180 });
+
+    return () => sr.destroy();
   }, []);
 
   useEffect(() => {
