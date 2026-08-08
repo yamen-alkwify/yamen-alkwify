@@ -71,7 +71,12 @@ export default function Hero({ typedText }) {
           </motion.p>
 
           <motion.div className="hero__cta" variants={fadeUp}>
-            <PrimaryButton href={assetPath('assets/img/cv/yamenCV.pdf')} target="_blank" rel="noreferrer">
+            <PrimaryButton
+              href={assetPath('assets/img/cv/yamenCV.pdf')}
+              target="_blank"
+              rel="noreferrer"
+              download="Yamen_Alkuify_Technical_Lead_CV.pdf"
+            >
               Download CV
               <i className="ri-download-line" />
             </PrimaryButton>
@@ -114,6 +119,8 @@ export default function Hero({ typedText }) {
                   src={portraitSrc}
                   alt="Yamen Alkuify portrait"
                   className="hero__portrait hero__portrait--warm"
+                  decoding="async"
+                  fetchPriority="high"
                   onError={() => {
                     if (portraitSrc !== portraitFallback) {
                       setPortraitSrc(portraitFallback);

@@ -7687,6 +7687,9 @@ transition: color .4s;
 .projects__feature-backdrop{
     position: absolute;
     inset: 0;
+    background:
+    radial-gradient(circle at center, rgba(255, 255, 255, .16), transparent 42%),
+    var(--project-accent);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

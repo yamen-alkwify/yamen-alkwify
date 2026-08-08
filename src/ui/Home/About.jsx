@@ -11,7 +11,13 @@ export default function About() {
       <div className="about__container container">
         <div className="about__media">
           <div className="about__image">
-            <img src={assetPath('assets/img/home-perfill.png')} alt="Yamen Alkuify portrait" className="about__img" />
+            <img
+              src={assetPath('assets/img/home-perfill-optimized.jpg')}
+              alt="Yamen Alkuify portrait"
+              className="about__img"
+              loading="lazy"
+              decoding="async"
+            />
 
             <div className="about__plaque">
               <span className="about__plaque-label">Primary Positioning</span>
