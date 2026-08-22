@@ -98,6 +98,8 @@ export default function Projects() {
                         src={project.image}
                         alt={project.title}
                         className="projects__feature-image"
+                        width={project.imageWidth}
+                        height={project.imageHeight}
                         loading="lazy"
                         decoding="async"
                       />

@@ -9269,3 +9269,21 @@ transition: color .4s;
         grid-template-columns: 1fr;
     }
 }
+
+/* Isolate complex cards so their effects do not repaint neighboring sections. */
+.experience-detail--timeline,
+.projects__feature{
+    contain: paint;
+}
+
+@media screen and (max-width: 768px){
+    .projects__feature-stage::after,
+    .projects__feature-backdrop,
+    .experience-detail__glow{
+        filter: none;
+    }
+
+    .projects__feature-badge{
+        backdrop-filter: none;
+    }
+}

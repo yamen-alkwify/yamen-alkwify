@@ -11,7 +11,9 @@ const projectPortfolioItems = [
     role: 'Flutter Developer',
     period: '03/2025 - Present',
     status: 'Live product',
-    image: img('projects-savi.jpg'),
+    image: img('projects-savi.webp'),
+    imageWidth: 900,
+    imageHeight: 1922,
     accent: 'linear-gradient(135deg, rgba(255, 198, 53, 0.92), rgba(244, 111, 29, 0.9))',
     summary:
       'Led and contributed to delivery of a production e-commerce application with advanced filtering, search, FCM notifications, wishlist functionality, and real-time order tracking.',
@@ -40,7 +42,9 @@ const projectPortfolioItems = [
     role: 'Flutter Developer',
     period: '03/2025 - Present',
     status: 'Web production release',
-    image: img('projects-qanun-ai.jpg'),
+    image: img('projects-qanun-ai.webp'),
+    imageWidth: 900,
+    imageHeight: 1911,
     accent: 'linear-gradient(135deg, rgba(255, 187, 76, 0.9), rgba(203, 117, 33, 0.92))',
     summary:
       'Supported production launch and delivery follow-up for a legal AI product, including notification-system improvements and application structure based on Clean Architecture.',
@@ -95,7 +99,9 @@ const projectPortfolioItems = [
     role: 'Flutter Developer and System Analyst',
     period: '01/2025 - Present',
     status: 'Market publication',
-    image: img('projects-awa.jpg'),
+    image: img('projects-awa.webp'),
+    imageWidth: 1200,
+    imageHeight: 670,
     accent: 'linear-gradient(135deg, rgba(49, 208, 170, 0.92), rgba(14, 116, 96, 0.9))',
     summary:
       'Built and delivered a full-featured real-estate listing application with offline caching, local data sourcing, push notifications, OTP authentication, Fatora, Syriatel Cash and MTN Cash payment integrations, and custom animations.',
@@ -123,7 +129,9 @@ const projectPortfolioItems = [
     role: 'Flutter Developer',
     period: 'Earlier launch',
     status: 'Legacy delivery',
-    image: img('wasena.jpg'),
+    image: img('projects-wasena.webp'),
+    imageWidth: 960,
+    imageHeight: 539,
     accent: 'linear-gradient(135deg, rgba(255, 196, 61, 0.9), rgba(205, 109, 41, 0.92))',
     summary:
       'A delivery application focused on Damascus countryside users, built to make ordering, tracking, and package receipt faster and more reliable for both residents and local businesses.',

@@ -60,8 +60,8 @@ export default function Experience({ experiences = [] }) {
               key={`${item.company}-${item.role}-${item.period}`}
               className="experience-detail experience-detail--timeline"
               style={{ '--experience-accent': item.accent }}
-              initial={{ opacity: 0, y: 28, filter: 'blur(8px)' }}
-              whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.18 }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1], delay: Math.min(index * 0.05, 0.2) }}
             >
@@ -74,7 +74,14 @@ export default function Experience({ experiences = [] }) {
                 <div className="experience-detail__brand">
                   <div className="experience-detail__logo">
                     {item.logo ? (
-                      <img src={item.logo} alt={`${item.company} logo`} loading="lazy" />
+                      <img
+                        src={item.logo}
+                        alt={`${item.company} logo`}
+                        width="320"
+                        height="320"
+                        loading="lazy"
+                        decoding="async"
+                      />
                     ) : (
                       <span>{getInitials(item.company)}</span>
                     )}

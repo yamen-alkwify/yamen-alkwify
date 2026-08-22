@@ -316,7 +316,7 @@ export const experiences = [
   period: '02/2026 - Present',
   location: 'Damascus',
   href: 'https://lumiai-agency.com/',
-  logo: img('lumi.png'),
+  logo: img('logo-lumi.webp'),
   summary:
     'Leading technical strategy and system architecture for scalable mobile solutions, driving engineering excellence, enforcing Clean Architecture (MVVM), and ensuring high performance, reliability, and maintainability across projects.',
   highlights: [
@@ -345,7 +345,7 @@ export const experiences = [
     period: '03/2025 - 01/2026 ',
     location: 'Damascus',
     href: 'https://lumiai-agency.com/',
-    logo: img('lumi.png'),
+    logo: img('logo-lumi.webp'),
     summary:
       'Building production Flutter apps with Clean Architecture (MVVM), native-feel motion, Cashing and local data sourcing ,Map APIs integration and notifications',
     highlights: [
@@ -363,7 +363,7 @@ export const experiences = [
     period: '12/2024 - 07/2025',
     location: 'Remote',
     href: 'https://awa-aqar.com/',
-    logo: img('awa.jpg'),
+    logo: img('logo-awa.webp'),
     summary:
       'Delivered AWA real-estate app end-to-end with payments, notifications, and rigorous requirements modeling.',
     highlights: [
@@ -380,7 +380,7 @@ export const experiences = [
     period: '07/2023 - 03/2025',
     location: 'Damascus',
     href: 'https://kk-group.example.com',
-    logo: img('kk.jpg'),
+    logo: img('logo-kk.webp'),
     summary:
       'Built internal and customer-facing apps and dashboards to digitize fabric orders, warehouse ops, and sales.',
     highlights: [
@@ -397,7 +397,7 @@ export const experiences = [
     period: '12/2023 - 03/2025',
     location: 'Damascus',
     href: 'https://kk-group.example.com',
-    logo: img('kk.jpg'),
+    logo: img('logo-kk.webp'),
     summary:
       'Translated stakeholder needs into executable blueprints with SRS deliverables and UML-driven designs.',
     highlights: [
